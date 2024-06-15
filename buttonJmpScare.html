@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM-projects</title>
+  <style>
+    .subscribe-btn{
+      color:white;
+      background-color:black;
+      padding: 10px 15px 10px 15px;
+      border-radius: 50px;
+      border: none;
+    }
+    .subscribed{
+      color:black;
+      background-color:rgb(240,240,240);
+      border: none;
+    }
+    .freddy{
+      width: 100vh;
+      height: 100vh;
+    }
+
+
+  </style>
+</head>
+<body>
+<p>YouTube Subscribe Button</p>
+<button onclick="update()" class="subscribe-btn">Subscribe</button>
+
+
+
+
+
+
+  <script>
+    pressTime = 0
+    const audio = new Audio('wav/jmpScare.mp3')
+    const audio1 = new Audio('wav/click.mp3')
+    function update() { 
+      pressTime++ 
+      audio1.play()
+      const button = document.querySelector('.subscribe-btn');
+      if (button.innerHTML == "Subscribe") {
+        button.innerHTML = "Subscribed";
+        button.classList.add('subscribed');             
+      } else if (button.innerHTML == "Subscribed") {
+        button.innerHTML = "Subscribe";
+        button.classList.remove('subscribed');  
+        
+      }
+      if (pressTime == 10) {
+      alert("You have been subscribed to our channel!")
+    }
+      freddy = document.createElement('img')
+      freddy.src="img/freddy.jpeg"
+      
+
+      if(pressTime == 10) {
+       freddy.classList.add('freddy')
+       a= document.querySelector('p')
+       b= document.querySelector('button')
+       a.remove()
+       b.remove()
+       document.body.appendChild(freddy)
+       audio.play()
+      }
+      
+      
+      
+      
+
+    }
+
+    
+
+  </script>
+</body>
+</html>
